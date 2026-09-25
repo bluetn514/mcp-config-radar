@@ -1,5 +1,7 @@
 # MCP Config Radar
 
+[English](README.md) · [简体中文](README.zh-CN.md)
+
 **Compare MCP server configs across AI coding tools with secret-safe diffs and CI reports.**
 
 ![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)
