@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="360" viewBox="0 0 1120 360" role="img" aria-labelledby="title desc">
+  <title id="title">MCP Parity config comparison</title>
+  <desc id="desc">Three AI coding tool config files flow into a local normalizer, which reports a safe field-level diff without exposing values.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#101827"/><stop offset="1" stop-color="#17243b"/></linearGradient>
+    <linearGradient id="accent" x1="0" x2="1"><stop stop-color="#68d6bf"/><stop offset="1" stop-color="#77a8ff"/></linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#6f8fb7"/></marker>
+    <style>
+      text{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;fill:#eaf1fb}
+      .muted{fill:#9db0ca}.small{font-size:14px}.label{font-size:13px;font-weight:700;letter-spacing:1.4px}
+    </style>
+  </defs>
+  <rect width="1120" height="360" rx="28" fill="url(#bg)"/>
+  <text x="48" y="58" font-size="13" class="label" fill="#79d8c1">READ-ONLY · LOCAL · SECRET-SAFE</text>
+  <text x="48" y="95" font-size="25" font-weight="750">One server. Several editors. One clear diff.</text>
+  <g transform="translate(48 132)">
+    <rect width="266" height="52" rx="12" fill="#1c2c44" stroke="#334966"/>
+    <circle cx="22" cy="26" r="6" fill="#e6a468"/><text x="40" y="23" font-size="15" font-weight="650">Claude Code</text><text x="40" y="41" class="small muted">.mcp.json</text>
+    <rect y="65" width="266" height="52" rx="12" fill="#1c2c44" stroke="#334966"/>
+    <circle cx="22" cy="91" r="6" fill="#7faaff"/><text x="40" y="88" font-size="15" font-weight="650">Cursor</text><text x="40" y="106" class="small muted">.cursor/mcp.json</text>
+    <rect y="130" width="266" height="52" rx="12" fill="#1c2c44" stroke="#334966"/>
+    <circle cx="22" cy="156" r="6" fill="#89d3a9"/><text x="40" y="153" font-size="15" font-weight="650">VS Code</text><text x="40" y="171" class="small muted">.vscode/mcp.json</text>
+  </g>
+  <path d="M333 158h84M333 223h84M333 288h84" fill="none" stroke="#6f8fb7" stroke-width="2" marker-end="url(#arrow)"/>
+  <g transform="translate(435 152)">
+    <rect width="250" height="142" rx="18" fill="#1a3042" stroke="#4b8e87" stroke-width="1.5"/>
+    <rect x="1" y="1" width="248" height="5" rx="3" fill="url(#accent)"/>
+    <text x="24" y="45" font-size="18" font-weight="700">mcp-parity</text>
+    <text x="24" y="73" class="small muted">Normalize · Compare</text>
+    <text x="24" y="99" class="small muted">No commands run · No network</text>
+    <text x="24" y="123" class="small" fill="#78dbc1">Values stay hidden</text>
+  </g>
+  <path d="M704 223h73" fill="none" stroke="#6f8fb7" stroke-width="2" marker-end="url(#arrow)"/>
+  <g transform="translate(795 137)">
+    <rect width="277" height="180" rx="18" fill="#1c2c44" stroke="#334966"/>
+    <text x="22" y="34" class="label" fill="#a7bbd7">REPORT</text>
+    <rect x="20" y="53" width="237" height="42" rx="9" fill="#352d31"/>
+    <circle cx="38" cy="74" r="5" fill="#ffb36b"/><text x="53" y="79" font-size="14" font-weight="650">github · env differs</text>
+    <rect x="20" y="105" width="237" height="42" rx="9" fill="#352d31"/>
+    <circle cx="38" cy="126" r="5" fill="#ffb36b"/><text x="53" y="131" font-size="14" font-weight="650">filesystem · args differ</text>
+    <text x="22" y="167" class="small muted">Text · JSON · SARIF</text>
+  </g>
+</svg>

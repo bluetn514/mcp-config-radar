@@ -1,0 +1,32 @@
+name: MCP config parity
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  config-parity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install .
+      - name: Scan MCP config
+        id: scan
+        continue-on-error: true
+        run: mcp-parity . --format sarif > mcp-parity.sarif
+      - name: Upload SARIF
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: mcp-parity.sarif
+      - name: Fail when configs drift
+        if: steps.scan.outcome == 'failure'
+        run: exit 1
