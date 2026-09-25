@@ -9,7 +9,7 @@ Issues and pull requests are welcome. Before proposing a new client adapter, inc
 - Keep reports value-free: never print server arguments, environment values, URL credentials, or HTTP header values.
 - Keep discovery read-only and avoid launching configured commands or making network requests.
 
-Install the local package in editable mode with `python -m pip install -e .`, then run `mcp-parity --help`.
+Install the local package in editable mode with `python -m pip install -e .`, then run `mcp-config-radar --help`.
 
 ## Pull requests
 

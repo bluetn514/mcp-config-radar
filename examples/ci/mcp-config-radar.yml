@@ -21,12 +21,12 @@ jobs:
       - name: Scan MCP config
         id: scan
         continue-on-error: true
-        run: mcp-parity . --format sarif > mcp-parity.sarif
+        run: mcp-config-radar . --format sarif > mcp-config-radar.sarif
       - name: Upload SARIF
         if: always()
         uses: github/codeql-action/upload-sarif@v3
         with:
-          sarif_file: mcp-parity.sarif
+          sarif_file: mcp-config-radar.sarif
       - name: Fail when configs drift
         if: steps.scan.outcome == 'failure'
         run: exit 1

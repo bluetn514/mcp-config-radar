@@ -1,14 +1,14 @@
-# MCP Parity
+# MCP Config Radar
 
-**Catch MCP server config drift across AI coding tools before it breaks a workflow.**
+**Compare MCP server configs across AI coding tools with secret-safe diffs and CI reports.**
 
 ![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)
 ![Zero runtime dependencies](https://img.shields.io/badge/runtime-zero%20dependencies-2E8B57)
 ![License: MIT](https://img.shields.io/badge/license-MIT-blue)
 
-When the same MCP server is configured in Claude Code, Cursor, VS Code, or Gemini CLI, a small difference can make one agent fail while another works. `mcp-parity` finds those differences locally and produces a CI-friendly report.
+When the same MCP server is configured in Claude Code, Cursor, VS Code, or Gemini CLI, differences can make one tool behave differently from another. `mcp-config-radar` compares those entries locally and produces a CI-friendly report without printing sensitive values.
 
-![MCP Parity compares client config files and reports field names without exposing values](docs/overview.svg)
+![MCP Config Radar compares client config files and reports field names without exposing values](docs/overview.svg)
 
 ## Quick start
 
@@ -16,27 +16,27 @@ Requires Python 3.11 or newer.
 
 ```bash
 python -m pip install .
-mcp-parity .
+mcp-config-radar .
 ```
 
 Or run directly from a checkout:
 
 ```bash
-git clone https://github.com/bluetn514/mcp-config-parity.git
-cd mcp-config-parity
+git clone https://github.com/bluetn514/mcp-config-radar.git
+cd mcp-config-radar
 python -m pip install .
 ```
 
 You can also run it without installing the command entry point:
 
 ```bash
-python -m mcp_parity .
+python -m mcp_config_radar .
 ```
 
 Example output:
 
 ```text
-mcp-parity 0.1.0
+mcp-config-radar 0.1.0
 
 Scanned 3 config(s) and 3 server definition(s).
   claude-code      .mcp.json (1 server(s))
@@ -54,7 +54,7 @@ Summary: 2 drift, 0 missing expected server(s), 0 config error(s).
 Try it on the bundled example:
 
 ```bash
-mcp-parity examples/project
+mcp-config-radar examples/project
 ```
 
 ## What it checks
@@ -86,13 +86,13 @@ User-level files are only inspected when you pass `--user`. Pass any other file 
 ### Include user-level config
 
 ```bash
-mcp-parity . --user
+mcp-config-radar . --user
 ```
 
 ### Require the same servers in selected clients
 
 ```bash
-mcp-parity . --expect cursor,vscode,codex
+mcp-config-radar . --expect cursor,vscode,codex
 ```
 
 The expected-client check is opt-in because not every repository uses every editor.
@@ -100,21 +100,21 @@ The expected-client check is opt-in because not every repository uses every edit
 ### JSON report
 
 ```bash
-mcp-parity . --format json > mcp-parity.json
+mcp-config-radar . --format json > mcp-config-radar.json
 ```
 
 ### SARIF report
 
 ```bash
-mcp-parity . --format sarif > mcp-parity.sarif
+mcp-config-radar . --format sarif > mcp-config-radar.sarif
 ```
 
-See [the GitHub Actions example](examples/ci/mcp-parity.yml) for uploading SARIF and failing the job when drift is present.
+See [the GitHub Actions example](examples/ci/mcp-config-radar.yml) for uploading SARIF and failing the job when drift is present.
 
 ### Inspect a non-standard path
 
 ```bash
-mcp-parity . --config ./config/team-mcp.json
+mcp-config-radar . --config ./config/team-mcp.json
 ```
 
 ## Privacy and safety
@@ -126,7 +126,11 @@ mcp-parity . --config ./config/team-mcp.json
 
 ## Scope
 
-MCP Parity checks whether config entries match; it does not test whether a server launches, whether a URL is reachable, or whether an API credential is valid. It compares server entries with the same name across different client types. If two clients intentionally need different configs, the report makes that difference visible so you can decide whether it is expected.
+MCP Config Radar compares same-named server entries across client config files. It does not launch configured processes, probe endpoints, benchmark servers, or decide whether a difference is intentional. If two clients need different settings, the report shows which fields differ so you can review them.
+
+## Related projects
+
+This project focuses on cross-client configuration comparison and value-free drift reports. It does not diagnose server health or audit server behavior. For adjacent workflows, see [`mcp-doctor`](https://github.com/realwigu/mcp-doctor) for broader server diagnosis, security checks, and benchmarks, and [`mcp-config-doctor`](https://github.com/aolingge/mcp-config-doctor) for validating individual config files and setup. [`egao1980/mcp-parity`](https://github.com/egao1980/mcp-parity) tests MCP protocol interoperability across SDKs; it is a different kind of parity check.
 
 ## Contributing
 

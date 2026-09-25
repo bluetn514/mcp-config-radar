@@ -3,9 +3,9 @@ requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "mcp-parity"
+name = "mcp-config-radar"
 version = "0.1.0"
-description = "Find configuration drift between MCP servers across AI coding tools."
+description = "Compare MCP server configs across AI coding tools with secret-safe, CI-friendly reports."
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
@@ -27,8 +27,8 @@ classifiers = [
 dependencies = []
 
 [project.scripts]
-mcp-parity = "mcp_parity.cli:main"
+mcp-config-radar = "mcp_config_radar.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["mcp_parity*"]
+include = ["mcp_config_radar*"]

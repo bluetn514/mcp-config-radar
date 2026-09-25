@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1120" height="360" viewBox="0 0 1120 360" role="img" aria-labelledby="title desc">
-  <title id="title">MCP Parity config comparison</title>
+  <title id="title">MCP Config Radar config comparison</title>
   <desc id="desc">Three AI coding tool config files flow into a local normalizer, which reports a safe field-level diff without exposing values.</desc>
   <defs>
     <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#101827"/><stop offset="1" stop-color="#17243b"/></linearGradient>
@@ -25,7 +25,7 @@
   <g transform="translate(435 152)">
     <rect width="250" height="142" rx="18" fill="#1a3042" stroke="#4b8e87" stroke-width="1.5"/>
     <rect x="1" y="1" width="248" height="5" rx="3" fill="url(#accent)"/>
-    <text x="24" y="45" font-size="18" font-weight="700">mcp-parity</text>
+    <text x="24" y="45" font-size="18" font-weight="700">mcp-config-radar</text>
     <text x="24" y="73" class="small muted">Normalize · Compare</text>
     <text x="24" y="99" class="small muted">No commands run · No network</text>
     <text x="24" y="123" class="small" fill="#78dbc1">Values stay hidden</text>

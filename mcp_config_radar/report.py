@@ -47,7 +47,7 @@ def json_report(result: ScanResult, findings: list[Finding]) -> str:
 
 
 def text_report(result: ScanResult, findings: list[Finding]) -> str:
-    lines = [f"mcp-parity {__version__}", ""]
+    lines = [f"mcp-config-radar {__version__}", ""]
     config_count = len(result.documents)
     server_count = sum(len(document.servers) for document in result.documents)
     lines.append(f"Scanned {config_count} config(s) and {server_count} server definition(s).")
@@ -115,7 +115,7 @@ def sarif_report(result: ScanResult, findings: list[Finding]) -> str:
         "runs": [{
             "tool": {
                 "driver": {
-                    "name": "mcp-parity",
+                    "name": "mcp-config-radar",
                     "semanticVersion": __version__,
                     "rules": list(rules.values()),
                 },

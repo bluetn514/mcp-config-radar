@@ -1,4 +1,4 @@
-"""Command-line interface for MCP Parity."""
+"""Command-line interface for MCP Config Radar."""
 
 from __future__ import annotations
 
@@ -20,8 +20,8 @@ _CLIENTS = (
 
 def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        prog="mcp-parity",
-        description="Find MCP server configuration drift across AI coding tools.",
+        prog="mcp-config-radar",
+        description="Compare MCP server configs across AI coding tools with secret-safe reports.",
         epilog="Reports never print command args, environment variable values, or HTTP header values.",
     )
     parser.add_argument("path", nargs="?", default=".", help="project directory to scan (default: current directory)")
@@ -30,7 +30,7 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument("--expect", metavar="CLIENTS", help="comma-separated clients expected to contain every server (for example: cursor,vscode,codex)")
     parser.add_argument("--format", choices=("text", "json", "sarif"), default="text", help="report format (default: text)")
     parser.add_argument("--fail-on", choices=("drift", "never"), default="drift", help="exit 1 when drift is found (default: drift)")
-    parser.add_argument("--version", action="version", version=f"mcp-parity {__version__}")
+    parser.add_argument("--version", action="version", version=f"mcp-config-radar {__version__}")
     return parser
 
 
